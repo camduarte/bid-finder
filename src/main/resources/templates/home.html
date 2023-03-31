@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>BidFinder | Home</title>
+</head>
+<body>
+	<div th:each="pedido : ${pedidos}">
+		<h3 th:text="${pedido.nombreProducto}">Título</h3>
+		<div>
+			<div>
+				<label for="value">Valor:</label>
+				<input id="value" type="text" th:value="${pedido.valorNegociado}" value="$200.000">
+				<label for="date">Fecha de entrega:</label>
+				<input id="date" type="text" th:value="${pedido.fechaEntrega}" value="10/09/2022">
+				<label for="url">Producto:</label>
+				<input id="url" type="text" th:value="${pedido.urlProducto}" value="URL del producto."> 
+				<label for="desc">Descripción:</label>
+				<textarea id="desc" th:text="${pedido.descripcion}">Descripción del producto.</textarea>
+			</div>
+			<div>
+				<img alt="Imagen del producto." th:src="${pedido.urlImagen}">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

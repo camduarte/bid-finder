@@ -3,8 +3,16 @@ package ar.com.camd.bidfinder.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Pedido {
 	
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nombreProducto;
 	private  BigDecimal valorNegociado;
 	private LocalDate fechaEntrega;

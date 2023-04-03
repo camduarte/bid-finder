@@ -8,13 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import ar.com.camd.bidfinder.model.Pedido;
-import ar.com.camd.bidfinder.repository.PedidosRepository;
+import ar.com.camd.bidfinder.repository.PedidoRepository;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	private PedidosRepository repository;
+	private PedidoRepository repository;
 	
 	@GetMapping("/home")
 	public String home(Model model) {

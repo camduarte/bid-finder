@@ -20,6 +20,15 @@ public class Pedido {
 	private String descripcion;
 	private String urlImagen;
 
+	public Pedido() {}
+
+	public Pedido(String nombreProducto, String urlProducto, String descripcion, String urlImagen) {
+		this.nombreProducto = nombreProducto;
+		this.urlProducto = urlProducto;
+		this.descripcion = descripcion;
+		this.urlImagen = urlImagen;
+	}
+
 	public String getNombreProducto() {
 		return nombreProducto;
 	}

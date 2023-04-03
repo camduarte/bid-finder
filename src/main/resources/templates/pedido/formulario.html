@@ -15,28 +15,27 @@
 			<div class="p-5 text-bg-secondary p-3 rounded-3">
 				<h1 class="display-5 fw-bold">Nuevo Pedido</h1>
 			</div>
-			<form action="./pedido/nuevo" method="post">
-			<div>
-				<label for="nombre">Producto</label>
-				<input id="nombre" name="nombreProducto" type="text" placeholder="Nombre del producto">
-				<small>Informe el nombre del producto.</small>
-			</div>
-			<div>
-				<label for="producto">URL</label>
-				<input id="producto" name="urlProducto" type="text" placeholder="URL del producto">
-				<small>Busque en una página el producto que desee y pegue la URL de la página aquí.</small>
-			</div>
-			<div>
-				<label for="imagen">Imagen</label>
-				<input id="imagen" name="urlImagen" type="text" placeholder="URL de la imagen">
-				<small>Copie la URL de una buena imagen y péguela aquí para ayudar a conseguir compradores.</small>
-			</div>
-			<div>
-				<label for="descripcion">Descripción</label>
-				<textarea id="descripcion" name="descripcion" placeholder="Agregue detalles importantes para ayudar al comprador"></textarea>
-			</div>
-				
-				<button type="submit">Registrar</button>
+			<form action="/pedido/nuevo" method="post">
+				<div class="mb-3">
+					<label class="form-label" for="nombre">Producto</label>
+					<input class="form-control" id="nombre" name="nombreProducto" type="text" placeholder="Nombre del producto">
+					<small>Informe el nombre del producto.</small>
+				</div>
+				<div class="mb-3">
+					<label class="form-label" for="producto">URL</label>
+					<input class="form-control" id="producto" name="urlProducto" type="text" placeholder="URL del producto">
+					<small>Busque en una página el producto que desee y pegue la URL de la página aquí.</small>
+				</div>
+				<div class="mb-3">
+					<label class="form-label" for="imagen">Imagen</label>
+					<input class="form-control" id="imagen" name="urlImagen" type="text" placeholder="URL de la imagen">
+					<small>Copie la URL de una buena imagen y péguela aquí para ayudar a conseguir compradores.</small>
+				</div>
+				<div class="mb-3">
+					<label class="form-label" for="descripcion">Descripción</label>
+					<textarea class="form-control" id="descripcion" name="descripcion" placeholder="Agregue detalles importantes para ayudar al comprador"></textarea>
+				</div>
+				<button class="btn btn-primary" type="submit">Registrar</button>
 			</form>
 		</div>
 		<script

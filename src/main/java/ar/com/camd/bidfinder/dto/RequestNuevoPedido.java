@@ -1,11 +1,19 @@
 package ar.com.camd.bidfinder.dto;
 
 import ar.com.camd.bidfinder.model.Pedido;
+import jakarta.validation.constraints.NotBlank;
 
 public class RequestNuevoPedido {
+
+	@NotBlank
 	private String nombreProducto;
+
+	@NotBlank
 	private String urlProducto;
+
+	@NotBlank
 	private String urlImagen;
+
 	private String descripcion;
 
 	public String getNombreProducto() {

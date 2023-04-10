@@ -1,20 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Bidfinder | Nuevo Pedido</title>
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
-			crossorigin="anonymous">
-	</head>
+	<head th:replace="~{base :: head}"></head>
 	<body>
+		<div th:replace="~{base :: logo}"></div>
 		<div class="container">
-			<div class="p-5 text-bg-secondary rounded-3 mb-3">
-				<h1 class="display-5 fw-bold">Nuevo Pedido</h1>
-			</div>
+			<div th:replace="~{base :: titulo('Nuevo Pedido', 'mb-3')}"></div>
 			<div class="card">
 				<form class="card-body" th:object="${requestNuevoPedido}" action="/pedido/nuevo" method="post">
 					<div class="mb-3">

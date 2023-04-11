@@ -31,12 +31,13 @@
 							<div class="col-md-5">
 								<label class="form-label" for="value">Valor:</label> <input
 									class="form-control-plaintext" id="value" type="text"
-									th:value="${pedido.valorNegociado}" value="$200.000">
+									th:if="${pedido.valorNegociado} != null"
+									th:value="${'$ ' + #numbers.formatDecimal(pedido.valorNegociado,3,'POINT',2,'COMMA')}" value="$200.000">
 							</div>
 							<div class="col-md-7">
 								<label class="form-label" for="date">Fecha de entrega:</label> <input
 									class="form-control-plaintext" id="date" type="text"
-									th:value="${pedido.fechaEntrega}" value="10/09/2022">
+									th:value="${#temporals.format(pedido.fechaEntrega, 'dd/MM/yyyy')}" value="10/09/2022">
 							</div>
 						</div>
 						<label class="form-label" for="url">Producto:</label> <input

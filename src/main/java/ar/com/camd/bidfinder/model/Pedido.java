@@ -34,6 +34,15 @@ public class Pedido {
 		this.urlImagen = urlImagen;
 	}
 
+	public Pedido(String nombreProducto, String urlProducto, String descripcion, String urlImagen,
+			StatusPedido estado) {
+		this.nombreProducto = nombreProducto;
+		this.urlProducto = urlProducto;
+		this.descripcion = descripcion;
+		this.urlImagen = urlImagen;
+		this.estado = estado;
+	}
+
 	public String getNombreProducto() {
 		return nombreProducto;
 	}

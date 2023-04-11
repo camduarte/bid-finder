@@ -1,6 +1,7 @@
 package ar.com.camd.bidfinder.dto;
 
 import ar.com.camd.bidfinder.model.Pedido;
+import ar.com.camd.bidfinder.model.StatusPedido;
 import jakarta.validation.constraints.NotBlank;
 
 public class RequestNuevoPedido {
@@ -42,6 +43,6 @@ public class RequestNuevoPedido {
 	}
 
 	public Pedido toPedido() {
-		return new Pedido(nombreProducto, urlProducto, descripcion, urlImagen);
+		return new Pedido(nombreProducto, urlProducto, descripcion, urlImagen, StatusPedido.ESPERANDO);
 	}
 }

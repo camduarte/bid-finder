@@ -31,7 +31,7 @@ public class HomeController {
 
 		return "home";
 	}
-	
+
 	@GetMapping("/{estado}")
 	public ModelAndView porEstado(@PathVariable("estado") String estado) {
 		List<Pedido> pedidos = pedidoRepository.findByEstado(StatusPedido.valueOf(estado.toUpperCase()));

@@ -70,12 +70,6 @@ public class Pedido {
 	public void setUrlImagen(String urlImagen) {
 		this.urlImagen = urlImagen;
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	public StatusPedido getEstado() {
 		return estado;
 	}

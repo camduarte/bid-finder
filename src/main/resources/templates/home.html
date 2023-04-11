@@ -17,7 +17,13 @@
 			</div>
 		</nav>
 		<div class="card mb-3" th:each="pedido : ${pedidos}">
-			<h6 class="card-header" th:text="${pedido.nombreProducto}">Título</h6>
+			
+			<th:block th:switch="${pedido.estado.name()}">
+				<h6 class="card-header text-bg-warning" th:case="'ESPERANDO'" th:text="${pedido.nombreProducto}">Título</h6>
+				<h6 class="card-header text-bg-success" th:case="'APROBADO'" th:text="${pedido.nombreProducto}">Título</h6>
+				<h6 class="card-header text-bg-dark" th:case="'ENTREGADO'" th:text="${pedido.nombreProducto}">Título</h6>
+			<th:block>
+			
 			<div class="card-body">
 				<div class="row">
 					<div class="col-12 col-sm-8 mb-3">

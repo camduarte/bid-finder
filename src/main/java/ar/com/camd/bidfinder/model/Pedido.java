@@ -4,13 +4,15 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Pedido {
-	
+
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombreProducto;
@@ -19,6 +21,9 @@ public class Pedido {
 	private String urlProducto;
 	private String descripcion;
 	private String urlImagen;
+
+	@Enumerated(EnumType.STRING)
+	private StatusPedido estado;
 
 	public Pedido() {}
 
@@ -65,5 +70,16 @@ public class Pedido {
 	public void setUrlImagen(String urlImagen) {
 		this.urlImagen = urlImagen;
 	}
-
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public StatusPedido getEstado() {
+		return estado;
+	}
+	public void setEstado(StatusPedido estado) {
+		this.estado = estado;
+	}
 }

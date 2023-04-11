@@ -38,6 +38,7 @@ public class HomeController {
 
 		ModelAndView modelAndView = new ModelAndView("/home");
 		modelAndView.addObject("pedidos", pedidos);
+		modelAndView.addObject("estado", estado);
 
 		return modelAndView;
 	}

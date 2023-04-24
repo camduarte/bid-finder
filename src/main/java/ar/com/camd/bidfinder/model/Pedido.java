@@ -6,9 +6,11 @@ import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Pedido {
@@ -24,6 +26,9 @@ public class Pedido {
 
 	@Enumerated(EnumType.STRING)
 	private StatusPedido estado;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;
 
 	public Pedido() {}
 

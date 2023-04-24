@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -44,11 +46,11 @@ public class WebSecurityConfig {
 
 	@Bean
 	public BCryptPasswordEncoder encoder() {
-		return new BCryptPasswordEncoder(16);
+		return new BCryptPasswordEncoder(10);
 	}
 
-//	@Bean
-//	UserDetailsManager users(BCryptPasswordEncoder encoder) {
+	@Bean
+	public UserDetailsManager users(BCryptPasswordEncoder encoder) {
 //		UserDetails christian = User.builder()
 //			.username("christian")
 //			.password(encoder.encode("christian"))
@@ -59,9 +61,9 @@ public class WebSecurityConfig {
 //			.password(encoder.encode("ariel"))
 //			.roles("ADM")
 //			.build();
-//		JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
+		JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
 //		users.createUser(christian);
 //		users.createUser(ariel);
-//		return users;
-//	}
+		return users;
+	}
 }

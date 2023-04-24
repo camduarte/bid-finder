@@ -1,5 +1,6 @@
 package ar.com.camd.bidfinder.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +19,15 @@ import ar.com.camd.bidfinder.repository.PedidoRepository;
 @Controller
 @RequestMapping("/home")
 public class HomeController {
-	
+
 	@Autowired
 	private PedidoRepository pedidoRepository;
 	
 	@GetMapping
-	public String home(Model model) {
+	public String home(Model model, Principal principal) {
 
-		List<Pedido> pedidos = pedidoRepository.findAll();
-		
+		List<Pedido> pedidos = pedidoRepository.findAllByUser(principal.getName());
+
 		model.addAttribute("pedidos", pedidos);
 
 		return "home";

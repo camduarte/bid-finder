@@ -14,6 +14,19 @@ CREATE TABLE `pedido` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+create table users(
+	username varchar(50) not null primary key,
+	password varchar(500) not null,
+	enabled boolean not null
+);
+
+create table authorities (
+	username varchar(50) not null,
+	authority varchar(50) not null,
+	constraint fk_authorities_users foreign key(username) references users(username)
+);
+create unique index ix_auth_username on authorities (username,authority);
+
 INSERT INTO `pedido` VALUES
 (12,'Con tu consola Switch tendrás entretenimiento asegurado todos los días. Su tecnología fue creada para poner nuevos retos tanto a jugadores principiantes como expertos.','2023-04-02','Nintendo Switch OLED','https://http2.mlstatic.com/D_NQ_NP_995408-MLA51572691067_092022-O.webp','https://www.mercadolibre.com.ar/nintendo-switch-oled-64gb-splatoon-3-edition-color-degradado-azul-y-degradado-amarillo-y-negro/p/MLA19610178?pdp_filters=category:MLA438566#searchVariation=MLA19610178&position=6&search_layout=stack&type=product&tracking_id=ba83a0e2-366a-408f-81ac-085c223a00c3',239.00,'ESPERANDO'),
 (13,'Lo que tenés que saber de este producto\r\nEs portátil, ideal para llevar a donde quieras y jugar con tus amistades y familia.\r\nIncluye control.\r\nMemoria RAM de 8KB.\r\nLa duración de la batería es de 10h.\r\nHoras de diversión garantizada.\r\nLa duración de la batería depende del uso que se le dé al producto',NULL,'Nintendo Game Boy','https://http2.mlstatic.com/D_NQ_NP_879123-MLA32731593266_112019-O.webp','https://www.mercadolibre.com.ar/nintendo-game-boy-pocket-color-verde/p/MLA6311898?pdp_filters=category:MLA1144#searchVariation=MLA6311898&position=1&search_layout=stack&type=product&tracking_id=e954c22b-9b23-4cb4-8d92-3ad841731a23',NULL,'APROBADO'),

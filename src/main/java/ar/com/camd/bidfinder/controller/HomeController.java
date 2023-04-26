@@ -24,9 +24,9 @@ public class HomeController {
 	private PedidoRepository pedidoRepository;
 	
 	@GetMapping
-	public String home(Model model, Principal principal) {
+	public String home(Model model) {
 
-		List<Pedido> pedidos = pedidoRepository.findAllByUser(principal.getName());
+		List<Pedido> pedidos = pedidoRepository.findAll();
 
 		model.addAttribute("pedidos", pedidos);
 
@@ -35,7 +35,9 @@ public class HomeController {
 
 	@GetMapping("/{estado}")
 	public ModelAndView porEstado(@PathVariable("estado") String estado) {
-		List<Pedido> pedidos = pedidoRepository.findByEstado(StatusPedido.valueOf(estado.toUpperCase()));
+		List<Pedido> pedidos = pedidoRepository.findByEstado(
+				StatusPedido.valueOf(estado.toUpperCase())
+				);
 
 		ModelAndView modelAndView = new ModelAndView("/home");
 		modelAndView.addObject("pedidos", pedidos);

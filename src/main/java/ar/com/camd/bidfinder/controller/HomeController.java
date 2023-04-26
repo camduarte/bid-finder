@@ -1,6 +1,5 @@
 package ar.com.camd.bidfinder.controller;
 
-import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,25 +23,9 @@ public class HomeController {
 	
 	@GetMapping
 	public String home(Model model) {
-
-		List<Pedido> pedidos = pedidoRepository.findAll();
-
+		List<Pedido> pedidos = pedidoRepository.findByEstado(StatusPedido.ENTREGADO);
 		model.addAttribute("pedidos", pedidos);
-
 		return "home";
-	}
-
-	@GetMapping("/{estado}")
-	public ModelAndView porEstado(@PathVariable("estado") String estado) {
-		List<Pedido> pedidos = pedidoRepository.findByEstado(
-				StatusPedido.valueOf(estado.toUpperCase())
-				);
-
-		ModelAndView modelAndView = new ModelAndView("/home");
-		modelAndView.addObject("pedidos", pedidos);
-		modelAndView.addObject("estado", estado);
-
-		return modelAndView;
 	}
 
 	@ExceptionHandler(IllegalArgumentException.class)

@@ -22,14 +22,18 @@ public class WebSecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests((requests) -> requests
-				.anyRequest().authenticated()
+				.requestMatchers("/home/**").permitAll()  //Acceso público al home.
+				.anyRequest().authenticated() // para cualquier otra url debe estar autenticado.
 				)
 				.formLogin(form -> form
 						.loginPage("/login")
 						.defaultSuccessUrl("/user/order", true)
-						.permitAll())
+						.permitAll()
+						)
 				.logout(logout -> logout                                                
-			            .logoutUrl("/logout"));
+			            .logoutUrl("/logout")
+			            .logoutSuccessUrl("/home")
+						);
 		return http.build();
 	}
 

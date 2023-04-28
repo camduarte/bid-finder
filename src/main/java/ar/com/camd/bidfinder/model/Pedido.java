@@ -3,6 +3,8 @@ package ar.com.camd.bidfinder.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -28,6 +30,7 @@ public class Pedido {
 	private StatusPedido estado;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnore
 	private User user;
 
 	public Pedido() {}

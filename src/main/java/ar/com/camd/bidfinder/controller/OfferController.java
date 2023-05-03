@@ -19,12 +19,12 @@ import org.springframework.web.servlet.ModelAndView;
  * @version  1.0.0-SNAPSHOT
  */
 @Controller
-@RequestMapping("/oferta")
-public class OfertaController {
+@RequestMapping("/offer")
+public class OfferController {
 
 	@GetMapping
 	public ModelAndView getForm() {
-		return new ModelAndView("/oferta/home");
+		return new ModelAndView("/offer/home");
 	} 
 
 }

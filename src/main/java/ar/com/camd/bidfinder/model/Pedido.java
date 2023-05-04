@@ -2,9 +2,11 @@ package ar.com.camd.bidfinder.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -13,6 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Pedido {
@@ -32,6 +35,9 @@ public class Pedido {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
 	private User user;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pedido", cascade = CascadeType.ALL)
+	private List<Offer> Offer;
 
 	public Pedido() {}
 
@@ -106,5 +112,19 @@ public class Pedido {
 	 */
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	/**
+	 * @return the offer
+	 */
+	public List<Offer> getOffer() {
+		return Offer;
+	}
+
+	/**
+	 * @param offer the offer to set
+	 */
+	public void setOffer(List<Offer> offer) {
+		Offer = offer;
 	}
 }

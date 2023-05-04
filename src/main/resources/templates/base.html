@@ -25,7 +25,7 @@
 
 <div th:fragment="logo" class="mb-3">
 	
-	<div class="row logo-container p-3">
+	<div class="logo-container p-3">
 	   <div class="col container-fluid d-flex justify-content-between">
 			<span class="logo">Bidfinder</span>
 			<span class="d-flex align-items-center">
@@ -35,7 +35,7 @@
 		   </span>
 	   </div>
 	</div>
-	<div class="row" sec:authorize="isAuthenticated()">
+	<div sec:authorize="isAuthenticated()">
 	   <div class="col">
 	       <nav class="nav">
 			  <a class="nav-link active" aria-current="page" th:href="@{/home}">Home</a>
